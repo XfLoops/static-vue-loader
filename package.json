@@ -1,7 +1,6 @@
 {
   "name": "static-vue-loader",
   "version": "0.0.2",
-  "private": true,
   "author": "xfloops@gmail.com",
   "license": "MIT",
   "scripts": {
