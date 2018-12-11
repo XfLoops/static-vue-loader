@@ -1,5 +1,7 @@
 # static-vue-loader
 
+[![npm](https://img.shields.io/npm/v/static-vue-loader.svg)](https://www.npmjs.com/package/static-vue-loader)
+[![NpmLicense](https://img.shields.io/npm/l/static-vue-loader.svg)](https://www.npmjs.com/package/static-vue-loader)
 
 `static-vue-loader` exposes a `VueLoader` method for registering async components. It's useful in static web project to achieve some lazy loading.
 
@@ -83,8 +85,8 @@ new Vue({
       // or advanced usage: 
       'my-awesome-component': {
         component: './components/my-awesome-component.html',
-        loading: '<div">请稍后....</div>',
-        error: '<div>请稍后再试.</div>',
+        loading: '<div">Please wait....</div>',
+        error: '<div>Please retry it later.</div>',
         delay: 0,
         timeout: 3500
       }
