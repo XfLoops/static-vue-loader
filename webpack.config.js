@@ -5,7 +5,7 @@ let config = {
   mode: mode,
   entry: './lib/index.js',
   output: {
-    filename: 'vue-loader.js',
+    filename: 'static-vue-loader.js',
     path: path.resolve(__dirname, './dist'),
     library: 'VueLoader',
     libraryTarget: 'window'

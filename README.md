@@ -50,7 +50,7 @@ ROOT
 |- lib
    |-- jquery.js
    |-- vue.js
-   |-- vue-loader.js
+   |-- static-vue-loader.js
 ```
 
 `index.html`:
@@ -60,7 +60,7 @@ ROOT
   ...
   <script src="./lib/jquery.js"></script>
   <script src="./lib/vue.js"></script>
-  <script src="./lib/vue-loader.js"></script>
+  <script src="./lib/static-vue-loader.js"></script>
   <script src="./main.js"></script>
 </head>
  <body>
