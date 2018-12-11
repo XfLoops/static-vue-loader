@@ -2,7 +2,7 @@ const path = require('path')
 const mode = process.env.NODE_ENV
 
 let config = {
-  mode: 'development',
+  mode: mode,
   entry: './lib/index.js',
   output: {
     filename: 'vue-loader.js',
@@ -12,6 +12,11 @@ let config = {
   },
   externals: {
     jquery: 'jQuery'
+  },
+  module: {
+    rules: [
+      { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader" }
+    ]
   }
 }
 
@@ -21,13 +26,13 @@ if (mode === 'development') {
 
   config = Object.assign(config, {
     devServer: {
-      contentBase: path.resolve(__dirname, './test'),
+      contentBase: path.resolve(__dirname, './example'),
       port: 4000,
       quiet: true
     },
     plugins: [
       new HtmlWebpackPlugin({
-        template: path.resolve(__dirname, './test/index.html')
+        template: path.resolve(__dirname, './example/index.html')
       }),
       new FriendlyErrorsPlugin({
         compilationSuccessInfo: {
