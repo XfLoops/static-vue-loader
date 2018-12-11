@@ -4,7 +4,7 @@
 `static-vue-loader` exposes a `VueLoader` method for registering async components. It's useful in static web project to achieve some lazy loading.
 
 
-## `VueLoader(option)`
+## VueLoader(option)
 
 `option` can be one of:
 
