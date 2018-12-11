@@ -19,8 +19,6 @@ describe('parseOption', function () {
 
     expect(parseOption(tmpl)).to.deep.equal(result)
   })
-
-
 })
 
 
