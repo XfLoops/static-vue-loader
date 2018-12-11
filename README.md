@@ -1,37 +1,134 @@
-# lzx-vue-loader
+# static-vue-loader
 
 
-`lzx-vue-loader` exposes a `VueLoader` method for registering local components.
+`static-vue-loader` exposes a `VueLoader` method for registering async components. It's useful in static web project to achieve some lazy loading.
 
 
-## usage
+## `VueLoader(option)`
 
-example1:
+`option` can be one of:
 
-```
-  new Vue({
-    components: VueLoader({
-      'compo-name': '/path/to/compo/file.html'
-    })
+```js
+{
+  ...
+  components: VueLoader({
+    'component-name': 'relative/path/to/component.html',
+    ...
   })
+}
+
+```
+or the advanced one:
+```js
+{
+  ...
+  components: VueLoader({
+    'component-name': {
+      component: 'relative/path/to/component.html',
+      loading: '<div>loading....</div>',
+      error: '<div>load fails. </div>',
+      delay: 200,
+      timeout: 3000
+    }
+  })
+}
 
 ```
 
-example2:
+## Example
+
+Suppose we have a static web project: 
 
 ```
-  new Vue({
+ROOT
+|- index.html
+|- main.js
+|- components
+   |-- my-awesome-component.html
+|- lib
+   |-- jquery.js
+   |-- vue.js
+   |-- vue-loader.js
+```
+
+`index.html`:
+
+```html
+<head>
+  ...
+  <script src="./lib/jquery.js"></script>
+  <script src="./lib/vue.js"></script>
+  <script src="./lib/vue-loader.js"></script>
+  <script src="./main.js"></script>
+</head>
+ <body>
+  <div id="app">
+    <div>App demo</div>
+    <my-awesome-component></my-awesome-component>
+  </div>
+</body>
+
+```
+
+`main.js`:
+
+```js
+new Vue({
+    el: '#app',
+
     components: VueLoader({
-      'compo-name': {
-        component: '/path/to/compo/file.html',
-        loading: '<div style="color:#999;">请稍后....</div>',
+      // simple usage:
+      'my-awesome-component': './components/my-awesome-component.html',
+      
+      // or advanced usage: 
+      'my-awesome-component': {
+        component: './components/my-awesome-component.html',
+        loading: '<div">请稍后....</div>',
         error: '<div>请稍后再试.</div>',
         delay: 0,
-        timeout: 4000
+        timeout: 3500
       }
     })
+
+    ...
   })
+```
+
+`my-awesome-component.html`:
+
+```html
+
+<template>
+  <div>
+    <div class="title">{{msg}}</div>
+    <div>This is a awesome component. </div>
+  </div>
+</template>
+
+<script>
+  // note: do NOT add `var` before `Component`
+  Component = {
+    data () {
+      return {
+        msg: 'Hello'
+      }
+    }
+  }
+</script>
+
+<style>
+  .title {
+    font-size: 24px;
+  }
+</style>
 
 ```
+
+We use `http-server ./ -p 4000` to start a static server, and can visit the page at: `http://localhost:4000`
+
+
+
+
+
 
 
