@@ -61,6 +61,8 @@ ROOT
   <script src="./lib/jquery.js"></script>
   <script src="./lib/vue.js"></script>
   <script src="./lib/static-vue-loader.js"></script>
+  <!-- or add `data-base-url` -->
+  <!-- <script src="./lib/static-vue-loader.js" data-base-url="/public/assets"></script> -->
   <script src="./main.js"></script>
 </head>
  <body>
