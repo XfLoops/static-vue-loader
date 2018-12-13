@@ -1,10 +1,9 @@
 # static-vue-loader
 
-[![npm](https://img.shields.io/npm/v/static-vue-loader.svg)](https://www.npmjs.com/package/static-vue-loader)
-[![NpmLicense](https://img.shields.io/npm/l/static-vue-loader.svg)](https://www.npmjs.com/package/static-vue-loader)
-
 `static-vue-loader` exposes a `VueLoader` method for registering async components. It's useful in static web project to achieve some lazy loading.
 
+[![npm](https://img.shields.io/npm/v/static-vue-loader.svg)](https://www.npmjs.com/package/static-vue-loader)
+[![NpmLicense](https://img.shields.io/npm/l/static-vue-loader.svg)](https://www.npmjs.com/package/static-vue-loader)
 
 ## VueLoader(option)
 
