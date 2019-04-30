@@ -13,7 +13,7 @@
 {
   ...
   components: VueLoader({
-    'component-name': 'relative/path/to/component.html',
+    'my-awesome-component': './components/my-awesome-component.html',
     ...
   })
 }
@@ -24,8 +24,8 @@ or the advanced one:
 {
   ...
   components: VueLoader({
-    'component-name': {
-      component: 'relative/path/to/component.html',
+    'my-awesome-component': {
+      component: './components/my-awesome-component.html',
       loading: '<div>loading....</div>',
       error: '<div>load fails. </div>',
       delay: 200,
@@ -38,7 +38,7 @@ or the advanced one:
 
 ## Example
 
-Suppose we have a static web project: 
+For example we have a static web project: 
 
 ```
 ROOT
@@ -47,8 +47,6 @@ ROOT
 |- components
    |-- my-awesome-component.html
 |- lib
-   |-- jquery.js
-   |-- vue.js
    |-- static-vue-loader.js
 ```
 
@@ -57,11 +55,10 @@ ROOT
 ```html
 <head>
   ...
-  <script src="./lib/jquery.js"></script>
-  <script src="./lib/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script src="./lib/static-vue-loader.js"></script>
   <!-- or add `data-base-url` -->
-  <!-- <script src="./lib/static-vue-loader.js" data-base-url="/public/assets"></script> -->
+  <!-- <script src="./lib/static-vue-loader.js" data-base-url="/public"></script> -->
   <script src="./main.js"></script>
 </head>
  <body>
