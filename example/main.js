@@ -1,5 +1,6 @@
 
-$(function () {
+window.onload = function () {
+  console.log('window onload')
   // usage1
   new Vue({
     el: '#app',
@@ -27,7 +28,7 @@ $(function () {
   //     console.log('app2 is mounted.')
   //   }
   // })
-})
+}
 
 
 

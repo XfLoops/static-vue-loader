@@ -1,5 +1,5 @@
 const { expect } = require('chai')
-const parseOption = require('../lib/parse-option')
+const { parseOption } = require('../lib/parsers')
 
 describe('parseOption', function () {
   
